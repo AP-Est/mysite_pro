@@ -6,12 +6,15 @@
 </head>
 <body>
 <h1>Blogs</h1>
+<h2>Was writen {{ blogs.count }} blog-post{{ blogs.count|pluralize }}</h2>
+
+
 
 {% for blog in blogs %}
 
-<h2>{{ blog.title }}</h2>
-<p>{{ blog.pub_date }}</p>
-<p>{{ blog.description }}</p>
+<a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+<p>{{ blog.pub_date|date:'d - M - Y: D'}}</p>
+<p>{{ blog.description|safe|truncatechars:100 }}</p>
 
 
 {% endfor %}

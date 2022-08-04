@@ -5,3 +5,6 @@ class Blog(models.Model):
     pub_date = models.DateField()
     description = models.TextField()
 
+    def __str__(self):
+        return self.title
+
